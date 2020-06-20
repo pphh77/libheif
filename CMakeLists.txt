@@ -51,11 +51,10 @@ if (has_potentially_evaluated_expression)
   add_definitions(-Wno-error=potentially-evaluated-expression)
 endif()
 
-if (UNIX)
-  find_package(PkgConfig)
-  pkg_check_modules(LIBDE265 libde265)
-  pkg_check_modules(X265 x265)
-endif()
+ find_package(PkgConfig)
+ pkg_check_modules(LIBDE265 libde265)
+ pkg_check_modules(X265 x265)
+
 
 # Create libheif pkgconfig file
 set(prefix ${CMAKE_INSTALL_PREFIX})

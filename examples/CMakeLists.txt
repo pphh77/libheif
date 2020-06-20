@@ -44,7 +44,7 @@ set (additional_libraries
 )
 endif()
 
-if(UNIX)
+
   include (${CMAKE_ROOT}/Modules/FindPkgConfig.cmake)
   pkg_check_modules (LIBPNG libpng)
   if(LIBPNG_FOUND)
@@ -59,7 +59,7 @@ if(UNIX)
       ${LIBPNG_LIBRARIES}
     )
   endif()
-endif()
+
 
 set (heif_info_sources
   heif_info.cc
@@ -104,6 +104,6 @@ if(LIBPNG_FOUND)
     encoder_png.h
     )
 
-  add_executable (heif-thumbnailer ${heif_thumbnailer_sources})
+  add_executable (heif-thumbnailer ${heif_thumbnailer_sources}  ${getopt_sources})
   target_link_libraries (heif-thumbnailer heif ${LIBPNG_LIBRARIES})
 endif()
